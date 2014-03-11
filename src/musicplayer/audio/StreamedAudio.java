@@ -3,7 +3,7 @@ package musicplayer.audio;
 import java.net.URL;
 
 public class StreamedAudio implements Audio {
-    public StreamedAudio(String file, URL audioUrl) {
+    public StreamedAudio(URL audioUrl) {
         // TODO
     }
 

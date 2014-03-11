@@ -1,5 +1,7 @@
 package musicplayer.audio;
 
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import java.io.IOException;
 import java.net.URL;
 import java.net.URLConnection;
@@ -7,7 +9,8 @@ import java.net.URLConnection;
 public class AudioFactory {
     private static AudioFactory instance;
 
-    private AudioFactory() {}
+    private AudioFactory() {
+    }
 
     public static AudioFactory getInstance() {
         if(instance == null) {
@@ -29,9 +32,14 @@ public class AudioFactory {
             return null;
         }
         if(conn.getContentLengthLong() < maxInMemoryLength) {
-            return new InMemoryAudio(file, audioUrl);
+            try {
+                return new InMemoryAudio(audioUrl);
+            } catch(IOException | UnsupportedAudioFileException |
+                    LineUnavailableException e) {
+                return null;
+            }
         } else {
-            return new StreamedAudio(file, audioUrl);
+            return new StreamedAudio(audioUrl);
         }
     }
 }
