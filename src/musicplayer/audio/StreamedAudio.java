@@ -1,9 +1,9 @@
 package musicplayer.audio;
 
-import java.net.URL;
+import javax.sound.sampled.AudioInputStream;
 
 public class StreamedAudio implements Audio {
-    public StreamedAudio(URL audioUrl) {
+    public StreamedAudio(AudioInputStream audioUrl) {
         // TODO
     }
 

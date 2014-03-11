@@ -2,15 +2,12 @@ package musicplayer.audio;
 
 import javax.sound.sampled.*;
 import java.io.IOException;
-import java.net.URL;
 
 public class InMemoryAudio implements Audio {
     private Clip clip;
 
-    public InMemoryAudio(URL audioUrl)
-            throws IOException, UnsupportedAudioFileException,
-            LineUnavailableException {
-        AudioInputStream stream = AudioSystem.getAudioInputStream(audioUrl);
+    public InMemoryAudio(AudioInputStream stream)
+            throws IOException, LineUnavailableException {
         DataLine.Info info = new DataLine.Info(Clip.class, stream.getFormat());
         clip = (Clip) AudioSystem.getLine(info);
         clip.open(stream);
