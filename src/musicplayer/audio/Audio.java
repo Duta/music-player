@@ -8,4 +8,10 @@ public interface Audio {
     public void stop();
 
     public void close();
+
+    public void setCurrentSecs(int currentSecs);
+
+    public int getCurrentSecs();
+
+    public int getTotalSecs();
 }
