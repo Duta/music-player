@@ -19,12 +19,11 @@ public class AudioFactory {
         return instance;
     }
 
-    public Audio getAudio(String name) {
-        return getAudio(name, 200_000L);
+    public Audio getAudio(File file) {
+        return getAudio(file, 10_000_000L);
     }
 
-    public Audio getAudio(String name, long maxInMemoryLength) {
-        File file = new File(name);
+    public Audio getAudio(File file, long maxInMemoryLength) {
         if(!file.exists()) {
             return null;
         }
