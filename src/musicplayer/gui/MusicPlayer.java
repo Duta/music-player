@@ -165,7 +165,7 @@ public class MusicPlayer extends Application {
         }
     }
 
-    private String formatSecs(int secs) {
+    private String formatSecs(long secs) {
         return String.format("%d:%02d", secs / 60, secs % 60);
     }
 }

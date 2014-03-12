@@ -29,18 +29,18 @@ public class StreamedAudio implements Audio {
     }
 
     @Override
-    public void setCurrentSecs(int currentSecs) {
+    public void setCurrentSecs(long currentSecs) {
         // TODO
     }
 
     @Override
-    public int getCurrentSecs() {
+    public long getCurrentSecs() {
         // TODO
         return 0;
     }
 
     @Override
-    public int getTotalSecs() {
+    public long getTotalSecs() {
         // TODO
         return 0;
     }

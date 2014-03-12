@@ -9,9 +9,9 @@ public interface Audio {
 
     public void close();
 
-    public void setCurrentSecs(int currentSecs);
+    public void setCurrentSecs(long currentSecs);
 
-    public int getCurrentSecs();
+    public long getCurrentSecs();
 
-    public int getTotalSecs();
+    public long getTotalSecs();
 }

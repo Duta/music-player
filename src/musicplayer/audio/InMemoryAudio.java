@@ -35,17 +35,17 @@ public class InMemoryAudio implements Audio {
     }
 
     @Override
-    public void setCurrentSecs(int currentSecs) {
-        clip.setMicrosecondPosition((long) currentSecs * MICROSECONDS_PER_SECOND);
+    public void setCurrentSecs(long currentSecs) {
+        clip.setMicrosecondPosition(currentSecs * MICROSECONDS_PER_SECOND);
     }
 
     @Override
-    public int getCurrentSecs() {
+    public long getCurrentSecs() {
         return (int) clip.getMicrosecondPosition() / MICROSECONDS_PER_SECOND;
     }
 
     @Override
-    public int getTotalSecs() {
+    public long getTotalSecs() {
         return (int) clip.getMicrosecondLength() / MICROSECONDS_PER_SECOND;
     }
 }
