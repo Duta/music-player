@@ -20,10 +20,6 @@ public class AudioFactory {
     }
 
     public Audio getAudio(File file) {
-        return getAudio(file, 10_000_000L);
-    }
-
-    public Audio getAudio(File file, long maxInMemoryLength) {
         if(!file.exists()) {
             return null;
         }
@@ -33,14 +29,10 @@ public class AudioFactory {
         } catch(UnsupportedAudioFileException | IOException e) {
             return null;
         }
-        if(file.length() < maxInMemoryLength) {
-            try {
-                return new InMemoryAudio(stream);
-            } catch(IOException | LineUnavailableException e) {
-                return null;
-            }
-        } else {
-            return new StreamedAudio(stream);
+        try {
+            return new InMemoryAudio(stream);
+        } catch(IOException | LineUnavailableException e) {
+            return null;
         }
     }
 }
