@@ -94,7 +94,9 @@ public class MusicPlayer extends Application {
                             .extensionFilters(
                                     new FileChooser.ExtensionFilter(
                                             "Music files (*.wav, *.aiff, *.au)",
-                                            "*.wav", "*.aiff", "*.au"))
+                                            "*.wav", "*.wave",
+                                            "*.aiff", "*.aif",
+                                            "*.au", "*.snd"))
                             .initialDirectory(
                                     new File(System.getProperty("user.home")))
                             .build();
